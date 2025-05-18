@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const FullCalendar = require("fullcalendar");
 const appointmentService = require("./services/AppointmentService");
 
 
@@ -50,8 +49,8 @@ app.post("/create", async (req, res) => {
 });
 
 app.get("/getcalendar", async (req,res) => {
-    var consultas = await appointmentService.GetAll(false);
-    res.json(consultas);
+    var appointments = await appointmentService.GetAll(false);
+    res.json(appointments);
 });
 
 

@@ -11,20 +11,29 @@
     <div id="calendar"></div>
 </body>
 
-<script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+<script src="/main.js"></script>
 
-    var element = document.getElementById("calendar");
-    var calendar = new FullCalendar.Calendar(element,{
-        initialView: 'dayGridMonth',
-        locale: 'pt-br',
-    });
-
-    calendar.render();
-
-</script>
 
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
 
-<script src="/main.js"></script>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+        var element = document.getElementById("calendar");
+
+        var calendar = new FullCalendar.Calendar(element, {
+            initialView: 'dayGridMonth',
+            locale: 'pt-br',
+            events: '/getcalendar'
+        });
+
+        calendar.render();
+
+    });
+    
+</script>
+
+
 
 </html>
