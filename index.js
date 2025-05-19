@@ -48,11 +48,27 @@ app.post("/create", async (req, res) => {
 
 });
 
-app.get("/getcalendar", async (req,res) => {
+app.get("/getcalendar",async (req,res) => {
     var appointments = await appointmentService.GetAll(false);
     res.json(appointments);
 });
 
+
+app.get("/event/:id", async (req, res) => {
+    const appointments = await appointmentService.GetById(req.params.id);
+
+    if (!appointments) {
+        return res.status(404).send('Consulta não encontrada');
+    }
+
+    res.render('event', { appo: appointments });
+});
+
+app.post("/finish", async (req,res) => {
+    var id = req.body.id;
+    var result = await appointmentService.Finish(id);
+    res.redirect("/");
+});
 
 app.listen(1515, () => {
 

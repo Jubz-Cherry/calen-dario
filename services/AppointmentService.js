@@ -46,6 +46,23 @@ class AppointmentService {
         }
     }
 
+    async GetById(id){
+        try{
+            var event = await Appo.findOne({_id: id});
+            return event;
+        }catch(err){
+            console.log("Deu erro", err);
+        }
+    }
+    async Finish(id){
+        try{
+        await Appo.FindByIdAndUpdate(id,{finished: true});
+        return true;
+        }catch(err){
+            console.log("Deu erro", err);
+            return false;
+        }
+    }
 }
 
 module.exports= new AppointmentService();

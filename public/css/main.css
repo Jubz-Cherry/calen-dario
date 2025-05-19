@@ -1,4 +1,6 @@
 body {
-    background-color: rgb(95, 255, 234);
-    border: 1px solid #000879;
+    background-color: rgb(160, 196, 190);
+}
+.fc td, .fc th {
+  border: 1px solid #00747c !important;
 }

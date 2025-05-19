@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema</title>
+    <title>Calendar</title>
     <link rel="stylesheet" href="/css/main.css">
 </head>
 
@@ -21,17 +21,19 @@
 <script>
         document.addEventListener('DOMContentLoaded', function () {
         var element = document.getElementById("calendar");
-
         var calendar = new FullCalendar.Calendar(element, {
             initialView: 'dayGridMonth',
             locale: 'pt-br',
-            events: '/getcalendar'
+            events: '/getcalendar',
+            eventClick: function(info){
+                window.location.href = '/event/'+info.event.id;
+            },
         });
 
         calendar.render();
 
     });
-    
+
 </script>
 
 
