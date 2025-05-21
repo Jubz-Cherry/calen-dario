@@ -4,7 +4,6 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const appointmentService = require("./services/AppointmentService");
 
-
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -29,6 +28,7 @@ app.get("/cadastro", (req, res) => {
     res.render("create");
 });
 
+
 app.post("/create", async (req, res) => {
 
     var status = await appointmentService.Create(
@@ -47,6 +47,7 @@ app.post("/create", async (req, res) => {
     }
 
 });
+
 
 app.get("/getcalendar",async (req,res) => {
     var appointments = await appointmentService.GetAll(false);
@@ -76,6 +77,7 @@ app.get("/list", async (req,res) => {
     res.render("list",{appos});
 });
  
+
 
 app.listen(1515, () => {
 
