@@ -56,7 +56,7 @@ class AppointmentService {
     }
     async Finish(id){
         try{
-        await Appo.FindByIdAndUpdate(id,{finished: true});
+        await Appo.findByIdAndUpdate(id,{finished: true});
         return true;
         }catch(err){
             console.log("Deu erro", err);

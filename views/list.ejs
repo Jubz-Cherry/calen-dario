@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+    <html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+    <link rel="stylesheet" href="/css/event.css">
+</head>
+<body>
+   <h1>Consultas: </h1>
+  
+    <hr>
+    <% appos.forEach(appo =>  { %>
+    <h4>Consulta feita: <%= appo.description %> </h4> 
+    <h4>Paciente: <%= appo.name %> </h4>
+    <h4>Email: <%= appo.email %> </h4>
+    <h4>CPF:  <%= appo.cpf %> </h4>
+    <hr>
+
+    <% }) %>
+        
+</body>
+
+    </html>

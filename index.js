@@ -64,12 +64,19 @@ app.get("/event/:id", async (req, res) => {
     res.render('event', { appo: appointments });
 });
 
+
 app.post("/finish", async (req,res) => {
     var id = req.body.id;
     var result = await appointmentService.Finish(id);
     res.redirect("/");
 });
 
+app.get("/list", async (req,res) => {
+    var appos = await appointmentService.GetAll(true);
+    res.render("list",{appos});
+});
+ 
+
 app.listen(1515, () => {
 
-})
+});
