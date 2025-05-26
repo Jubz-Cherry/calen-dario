@@ -54,6 +54,7 @@ class AppointmentService {
             console.log("Deu erro", err);
         }
     }
+
     async Finish(id){
         try{
         await Appo.findByIdAndUpdate(id,{finished: true});
@@ -62,6 +63,17 @@ class AppointmentService {
             console.log("Deu erro", err);
             return false;
         }
+    }
+
+    async Search(query){
+        try{
+            var appos = await Appo.find().or([{email: query},{cpf: query}]);
+            return appos;
+        }catch(err){
+            console.log("CPF ou email inválido", err);
+            return [];
+        }
+        
     }
 }
 

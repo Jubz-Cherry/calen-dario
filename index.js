@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const appointmentService = require("./services/AppointmentService");
+const AppointmentService = require("./services/AppointmentService");
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -72,13 +73,19 @@ app.post("/finish", async (req,res) => {
     res.redirect("/");
 });
 
+
 app.get("/list", async (req,res) => {
     var appos = await appointmentService.GetAll(true);
     res.render("list",{appos});
 });
+
+
+app.get("/searchresult", async (req, res) => {
+    var appos = await AppointmentService.Search(req.query.search)
+    res.render("list",{appos});
+}) 
  
 
 
-app.listen(1515, () => {
-
+app.listen(1515, () => {   
 });
