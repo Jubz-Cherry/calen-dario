@@ -83,8 +83,15 @@ app.get("/list", async (req,res) => {
 app.get("/searchresult", async (req, res) => {
     var appos = await AppointmentService.Search(req.query.search)
     res.render("list",{appos});
-}) 
- 
+});
+
+var pollTime= 2 * 60000
+
+setInterval(async () => {
+
+    await AppointmentService.SendNotification()
+    
+},pollTime)
 
 
 app.listen(1515, () => {   
