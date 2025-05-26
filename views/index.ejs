@@ -14,10 +14,6 @@
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
 <script src="/main.js"></script>
 
-
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
-
-
 <script>
         document.addEventListener('DOMContentLoaded', function () {
         var element = document.getElementById("calendar");
@@ -28,6 +24,14 @@
             eventClick: function(info){
                 window.location.href = '/event/'+info.event.id;
             },
+
+            eventDataTransform: function(event) {
+    return {
+      ...event,
+      allDay: true
+    };
+  },
+  
         });
 
         calendar.render();

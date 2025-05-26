@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(160, 196, 190);
+    background-color: rgb(160, 196, 190) !important;
 }
 .fc td, .fc th {
   border: 1px solid #00747c !important;

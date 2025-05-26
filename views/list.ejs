@@ -9,7 +9,7 @@
 
 </head>
 <body>
-    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="d-flex justify-content-center align-items-center align-items-start py-5">
     <div class="container">
         <div class="card" id="formulario-pergunta">
             <div class="card-header">
@@ -17,6 +17,12 @@
    <h4>Consultas: </h4>
   
     <hr>
+    <form action="" method="post">
+        <input type="search" name="search" id="search" placeholder="Digite o email ou CFP do paciente">
+        <button class="btn btn-danger">Pesquisar</button>
+    </form>
+    <hr>
+    
     <% appos.forEach(appo =>  { %>
     <h7>Consulta feita: <%= appo.description %> </h7> 
     <h7>/ Paciente: <%= appo.name %> </h7>

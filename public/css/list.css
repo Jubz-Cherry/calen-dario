@@ -1,6 +1,6 @@
 body{
-    background-color: rgb(253, 146, 218);
+    background-color: rgb(253, 146, 218) !important;
 }
 .card {
-  background-color: pink;
+  background-color: rgb(252, 225, 229) !important;
 }
