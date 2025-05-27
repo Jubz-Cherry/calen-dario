@@ -83,18 +83,18 @@ class AppointmentService {
 
         var transporter = mailer.createTransport({
                 host: "sandbox.smtp.mailtrap.io",
-                port: "2525",
+                port: 2525,
                 auth: {
                 user: "5f9a9cf8013213",
-                password: "28dac597a538e0"
+                pass: "28dac597a538e0"
                 }
         });
 
-        appos.forEach(async app => {
+        for (const app of appos) {
 
-            var date = app.start.getTime()
-            var hour = 1000 * 60 * 60;
-            var gap = date-Date.now();
+            const date = app.start.getTime()
+            const hour = 1000 * 60 * 60;
+            const gap = date-Date.now();
 
             if(gap <= hour){
 
@@ -108,15 +108,15 @@ class AppointmentService {
                         subject: "Sua consulta irá ocorrer embreve",
                         text: "Se prepare!!"
                     }).then( () => {
-
+                        console.log("Email enviado!", app.email);
                     }).catch(err => {
-
+                        console.log("Erro ao enviar email:", app.email, err);
                     })
 
                 }
                 
             }
-        })
+        }
     }
 }
 
